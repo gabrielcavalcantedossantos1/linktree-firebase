@@ -29,7 +29,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate('/admin/social', { replace: true });
+        navigate('/admin', { replace: true });
       })
       .catch((error) => {
         if (error.code === 'auth/invalid-credential') {

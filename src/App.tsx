@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/netWorks',
+    path: '/admin/social',
     element: <NetWorks />,
   },
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: '/admin/social',
+    path: '/admin',
     element: <Admin />,
   },
 ]);
