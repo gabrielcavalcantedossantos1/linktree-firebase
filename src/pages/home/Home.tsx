@@ -1,7 +1,13 @@
 import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { Social } from '../../components/social';
+import { useEffect } from 'react';
+import { doc } from 'firebase/firestore';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = 'Home | ReactLinks';
+  })
+
   return (
     <div className="flex flex-col w-full py-4 items-center justify-center">
       <h1 className="md:text-4xl  text-3xl font-bold text-white mt-20">

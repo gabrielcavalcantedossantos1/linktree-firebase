@@ -5,13 +5,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../../components/input';
 
 // hooks
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 
 // firebase
 import { auth } from '../../services/firebaseConnection';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
+  useEffect(() => {
+      document.title = 'Login | ReactLinks';
+    })
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
