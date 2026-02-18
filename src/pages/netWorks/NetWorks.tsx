@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const NetWorks = () => {
   useEffect(() => {
       document.title = 'NetWorks | ReactLinks';
-    })
+    }, [])
     
   return (
     <div>

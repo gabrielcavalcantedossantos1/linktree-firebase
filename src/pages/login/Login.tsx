@@ -14,7 +14,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 const Login = () => {
   useEffect(() => {
       document.title = 'Login | ReactLinks';
-    })
+    }, [])
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

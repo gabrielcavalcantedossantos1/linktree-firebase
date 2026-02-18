@@ -6,7 +6,7 @@ import { doc } from 'firebase/firestore';
 const Home = () => {
   useEffect(() => {
     document.title = 'Home | ReactLinks';
-  })
+  }, [])
 
   return (
     <div className="flex flex-col w-full py-4 items-center justify-center">
