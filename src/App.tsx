@@ -22,7 +22,6 @@ const router = createBrowserRouter([
           </Private>
         ),
       },
-      { path: '*', element: <Error /> },
       { path: '/login', element: <Login /> },
       {
         path: '/admin',
@@ -32,6 +31,7 @@ const router = createBrowserRouter([
           </Private>
         ),
       },
+      { path: '*', element: <Error /> },
     ],
   },
 ]);
