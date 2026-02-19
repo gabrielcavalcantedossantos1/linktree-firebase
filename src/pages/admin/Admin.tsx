@@ -57,6 +57,11 @@ const Admin = () => {
       });
   }
 
+  async function handleDeleteLink(id: string) {
+    const docRef = doc(db, 'links', id);
+    await deleteDoc(docRef);
+  }
+
   useEffect(() => {
     document.title = 'Admin | ReactLinks';
 
@@ -114,6 +119,7 @@ const Admin = () => {
               Cor do Link
             </label>
             <input
+              className="h-10 w-10"
               type="color"
               id="fundo"
               value={textColorInput}
@@ -129,6 +135,7 @@ const Admin = () => {
               Fundo do Link
             </label>
             <input
+              className="h-10 w-10"
               type="color"
               id="linkBg"
               value={bgColorInput}
@@ -165,19 +172,31 @@ const Admin = () => {
         </button>
       </form>
 
-      <h2 className="text-white text-white mb-4 text-2xl">Meus links</h2>
+      {links.length > 0 && (
+        <h2 className="text-white text-white mb-4 text-2xl">Meus links</h2>
+      )}
 
-      <article
-        className="flex items-center justify-between w-11/12 max-x-xl rounded py-3 px-2 mb-2 select-none"
-        style={{ backgroundColor: '#fff', color: '#000' }}
-      >
-        <p>Canal do youtube</p>
-        <div>
-          <button className="border border-dashed p-1 bg-neutral-950 cursor-pointer opacity-90 hover:opacity-100  transition-opacity rounded-md">
-            <FiTrash size={18} color="#fff" />
-          </button>
-        </div>
-      </article>
+      {links.map((link) => (
+        <article
+          key={link.id}
+          className="flex items-center justify-between w-11/12 max-x-xl rounded py-3 px-2 mb-2 select-none mt-3"
+          style={{ backgroundColor: link.Bg, color: link.color }}
+        >
+          <p>{link.name}</p>
+          <div>
+            <button
+              className="p-2 rounded-md bg-black/40 hover:bg-red-500/20 
+             transition-all transform hover:scale-110 cursor-pointer"
+              onClick={() => handleDeleteLink(link.id)}
+            >
+              <FiTrash
+                size={18}
+                className="text-red-400 hover:text-red-500 transition-colors"
+              />
+            </button>
+          </div>
+        </article>
+      ))}
     </div>
   );
 };

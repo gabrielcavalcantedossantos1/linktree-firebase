@@ -12,7 +12,7 @@ export function Header() {
   return (
     <header className="w-full max-w-2xl mt-4 px-1">
       <nav className="w-full bg-white h-12 flex items-center justify-between rounded-md px-3">
-        <div className="flex gap-1.5">
+        <div className="flex gap-4">
           <Link to="/">Home</Link>
 
           <Link to="/admin">Links</Link>
