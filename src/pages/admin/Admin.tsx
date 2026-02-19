@@ -51,6 +51,8 @@ const Admin = () => {
       .then(() => {
         setNameInput('');
         setUrlInput('');
+        setTextColorInput('#f1f1f1');
+        setBgColorInput('#121212');
       })
       .catch((error) => {
         console.log('ERRO AO CADASTRAR' + error);
