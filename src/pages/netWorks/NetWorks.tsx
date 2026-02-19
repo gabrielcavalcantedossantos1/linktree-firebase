@@ -5,6 +5,7 @@ import { Input } from '../../components/input';
 import { db } from '../../services/firebaseConnection';
 
 import { setDoc, doc, getDoc } from 'firebase/firestore';
+import { snapshot } from 'node:test';
 
 const NetWorks = () => {
   const [whatsApp, setWhatsApp] = useState('');
@@ -24,16 +25,23 @@ const NetWorks = () => {
       instagram: instagram,
       linkedin: linkedin,
     })
-      .then(() => {
-        console.log('Redes sociais salvas com sucesso!');
-      })
-      .catch((error) => {
-        console.log('Erro ao salvar redes sociais: ' + error);
-      });
   }
 
   useEffect(() => {
     document.title = 'NetWorks | ReactLinks';
+
+    function loadLinks() {
+      const docRef = doc(db, 'social', 'link');
+      getDoc(docRef).then((snapshot) => {
+        if(snapshot.exists()) {
+          const data = snapshot.data();
+          setWhatsApp(data.whatsapp);
+          setInstagram(data.instagram);
+          setLinkedin(data.linkedin);
+        }
+      });
+    }
+    loadLinks();
   }, []);
 
   return (
