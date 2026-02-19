@@ -104,19 +104,18 @@ const Home = () => {
 
         {socialLinks && Object.keys(socialLinks).length > 0 && (
           <footer className="flex justify-center gap-3 my-4">
-            <Social url="https://www.linkedin.com/in/gabrielc-dev/">
+            <Social url={socialLinks.linkdin}>
               <FaLinkedin size={35} color="#0084ff" />
             </Social>
 
-            <Social url="https://www.instagram.com/gabriel__cds/">
+            <Social url={socialLinks.instagram}>
               <FaInstagram
                 size={35}
-                color="#E1306C
-"
+                color="#E1306C"
               />
             </Social>
 
-            <Social url="https://wa.me/62994221836">
+            <Social url={socialLinks.whatsapp}>
               <FaWhatsapp size={35} color="#03970f" />
             </Social>
           </footer>
