@@ -173,7 +173,7 @@ const Admin = () => {
       </form>
 
       {links.length > 0 && (
-        <h2 className="text-white text-white mb-4 text-2xl">Meus links</h2>
+        <h2 className=" text-white mb-4 text-2xl">Meus links</h2>
       )}
 
       {links.map((link) => (
